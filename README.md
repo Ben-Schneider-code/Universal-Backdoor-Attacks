@@ -41,7 +41,7 @@ the baseline attack and example configurations for reproducing the experiments i
 	- To recreate our Universal Backdoor on a ResNet-18 model run:  
 	``` python train_universal_backdoor.py --config_path ../configs/universal_backdoor_config.yaml ```
 	- Enviroment specific parameters like ```gpus```,  ```root``` and ```wandb_project``` in ```universal_backdoor_config.yaml``` must be configured.
-	- To recreate our Inter-class transferability experiment, run:  
+	- To recreate our inter-class transferability experiment, run:  
 	``` python train_universal_backdoor.py --config_path ../configs/transferability_experiment_config.yaml ```
 - **```examples/defend.py```**
     - Used to apply a backdoor defense to a model checkpoint.
