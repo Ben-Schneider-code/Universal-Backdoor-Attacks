@@ -35,9 +35,19 @@ the baseline attack and example configurations for reproducing the experiments i
 - Create a WandB project.
 
 ## Example Scripts
-
-
-
+- All scripts are run like: ``` python script.py --config_path /local/path/to/config.yaml ```
+- **```examples/train_universal_backdoor.py```**
+    - Script for training models that contain backdoors. Can be used for recreating our Universal Backdoor and the baseline using either patch or blended triggers.
+	- To recreate our Universal Backdoor on a ResNet-18 model run:  
+	``` python train_universal_backdoor.py --config_path ../configs/universal_backdoor_config.yaml ```
+	- Enviroment specific parameters like ```gpus```,  ```root``` and ```wandb_project``` in ```universal_backdoor_config.yaml``` must be configured.
+	- To recreate our Inter-class transferability experiment, run:  
+	``` python train_universal_backdoor.py --config_path ../configs/transferability_experiment_config.yaml ```
+- **```examples/defend.py```**
+    - Used to apply a backdoor defense to a model checkpoint.
+	- An example config for weight decay is provided in ```/configs/apply_defense_config.yaml```
+- **```examples/data_sanitization.py```**
+    - Used to apply data sanitization defenses like STRIP.
 ## Paper
 > **Universal Backdoor Attacks**  
 > Benjamin Schneider, Nils Lukas and Florian Kerschbaum.
