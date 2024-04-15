@@ -1,0 +1,40 @@
+model_args:
+  model_name: resnet18
+  resolution: 224
+  embed_model_weights: ResNet18_Weights.DEFAULT
+  distributed: True
+
+dataset_args:
+  dataset_name: ImageNet
+  normalize: True
+  singular_embed: True
+
+defense_args:
+  def_name: weight-decay
+  def_data_ratio: 0.01
+  def_num_steps: 5_000
+  def_init_lr: 0.0005
+  def_weight_decay: 0.001
+
+observer_args:
+  observer_names: ['before-deployment-robustness']
+
+backdoored_model_args:
+  bdma_verbose: False
+  model_file: model.pt
+  backdoor_file: backdoor.bd
+  path: /PATH/TO/LOAD/MODEL/CHECKPOINT/
+
+env_args:
+  batch_size: 128
+  num_workers: 4
+  num_validation_workers: 2
+  gpus: [0]
+  port: 3009
+
+output_dir:
+  root: /PATH/TO/MODEL/CHECKPOINT
+  wandb_project: 'universal_backdoor_project'
+  iterations_per_log: 4000
+  sample_size: 20000
+  checkpoint_every_n_epochs: 10

@@ -1,0 +1,42 @@
+model_args:
+  model_name: resnet18
+  resolution: 224
+  distributed: True
+
+dataset_args:
+  dataset_name: ImageNet
+  normalize: True
+  singular_embed: True
+
+backdoor_args:
+  mark_width: 8
+  poison_num: 2000
+  backdoor_name: multi-badnets
+  target_class: -1 # make target class -1 so sampling is done from all classes
+  num_triggers: 30
+  num_target_classes: 1000
+  prepared: True
+
+env_args:
+  batch_size: 128
+  num_workers: 12
+  num_validation_workers: 3
+  gpus: [0,1]
+  port: 3034
+
+trainer_args:
+  epochs: 90
+  save_only_best: False
+  momentum: 0.9
+  lr: 0.1
+  weight_decay: 0.0001
+  linear_scheduler: True
+  step_size: 30
+  gamma: .1
+
+output_dir:
+  root: /PATH/TO/MODEL/CHECKPOINT/
+  wandb_project: 'universal_backdoor_project'
+  iterations_per_log: 4000
+  sample_size: 20000
+  checkpoint_every_n_epochs: 10
