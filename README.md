@@ -20,7 +20,7 @@ the baseline attack and example configurations for reproducing the experiments i
 
 - Install PyTorch version 2.0.1 (or newer).
 - Install required python packages:  
-```python -m pip install -r requirements.py```
+```python -m pip install -r requirements.txt```
 
 ### Datasets
 
