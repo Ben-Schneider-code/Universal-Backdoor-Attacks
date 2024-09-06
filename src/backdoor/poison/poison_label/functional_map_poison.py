@@ -129,8 +129,8 @@ class BlendBaselineFunction(PerturbationFunction):
 
 class BlendFunction(PerturbationFunction):
 
-    def __init__(self, alpha=.10):
-        self.alpha = alpha
+    def __init__(self, args):
+        self.alpha = args.alpha
 
     def perturb(self, patch_info: PatchInfo):
         x = patch_info.base_image
