@@ -36,10 +36,15 @@ the baseline attack and example configurations for reproducing the experiments i
 
 ## Example Scripts
 - All scripts are run like: ``` python script.py --config_path /local/path/to/config.yaml ```
+- Make sure the repo root is on your pythonpath with ``` export PYTHONPATH="${PYTHONPATH}:/PATH/TO/REPO/Universal-Backdoor-Attacks" ```
+- 
 - **```examples/train_universal_backdoor.py```**
     - Script for training models that contain backdoors. Can be used for recreating our Universal Backdoor and the baseline using either patch or blended triggers.
-	- To recreate our Universal Backdoor on a ResNet-18 model run:  
+	- To recreate our Universal Backdoor with a patch trigger on a ResNet-18 model run:  
 	``` python train_universal_backdoor.py --config_path ../configs/universal_backdoor_config.yaml ```
+	- To recreate our Universal Backdoor with a blend trigger on a ResNet-18 model run:  
+	``` python train_universal_backdoor.py --config_path ../configs/universal_backdoor_blend_config.yaml ```
+	- The config folder also contains files for recreating our baselines as well.
 	- Enviroment specific parameters like ```gpus```,  ```root``` and ```wandb_project``` in ```universal_backdoor_config.yaml``` must be configured.
 	- To recreate our inter-class transferability experiment, run:  
 	``` python train_universal_backdoor.py --config_path ../configs/transferability_experiment_config.yaml ```
