@@ -13,7 +13,7 @@ dataset_args:
 backdoor_args:
   mark_width: 8
   poison_num: 5000
-  backdoor_name: functional-binary-map
+  backdoor_name: universal-backdoor-blend
   target_class: -1 # make target class -1 so sampling is done from all classes
   num_triggers: 30
   num_triggers_in_col: 6
