@@ -31,7 +31,7 @@ if mp.get_start_method(allow_none=True) != 'spawn':
 
 from torch.nn.parallel import DistributedDataParallel as DDP
 from torch.distributed import init_process_group, destroy_process_group
-
+from datetime import timedelta
 
 def parse_args():
     parser = transformers.HfArgumentParser((ModelArgs,
@@ -160,7 +160,7 @@ def ddp_setup(rank, world_size, port):
     """
     os.environ["MASTER_ADDR"] = "localhost"
     os.environ["MASTER_PORT"] = str(port)
-    init_process_group(backend="nccl", rank=rank, world_size=world_size)
+    init_process_group(backend="nccl", rank=rank, world_size=world_size, timeout=timedelta(days=1))
 
     print_highlighted("rank " + str(rank) + " worker is online")
     torch.cuda.set_device(rank)
