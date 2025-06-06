@@ -1,4 +1,4 @@
-## [ICLR 2024] Universal Backdoor Attacks
+## Universal Backdoor Attacks
 
 <p>
     <a href="https://www.python.org/downloads/">
